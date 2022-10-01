@@ -1,0 +1,63 @@
+---
+import Layout from '../../layouts/Layout.astro'
+import PageLayout from '../../layouts/PageLayout.astro'
+---
+
+<Layout title="Text Colors">
+  <PageLayout />
+  <main>
+    <div class="flex flex-col justify-center items-center w-screen min-h-screen">
+      <h4>GRADIENT TEXT</h4>
+      <h1 class="font-bold inline color1 px-4 leading-none mb-12">
+        The Quick Brown Fox Jumps
+      </h1>
+
+      <h4>GRADIENT TEXT PULSE ANIMATED</h4>
+      <h1 class="font-bold inline color2 px-4 leading-none">The Quick Brown Fox Jumps</h1>
+    </div>
+  </main>
+</Layout>
+
+<style>
+  .color1 {
+    color: transparent;
+    background-clip: text;
+    background-image: linear-gradient(
+      68.7deg,
+      rgba(29, 173, 235, 1) 13.2%,
+      rgba(137, 149, 250, 1) 29.8%,
+      rgba(229, 109, 212, 1) 48.9%,
+      rgba(255, 68, 128, 1) 68.2%,
+      rgba(255, 94, 0, 1) 86.4%
+    );
+    text-align: center;
+  }
+  .color2 {
+    color: transparent;
+    background-clip: text;
+    background-image: linear-gradient(
+      0deg,
+      rgba(29, 173, 235, 1) 13.2%,
+      rgba(137, 149, 250, 1) 29.8%,
+      rgba(229, 109, 212, 1) 48.9%,
+      rgba(255, 68, 128, 1) 68.2%,
+      rgba(255, 94, 0, 1) 86.4%
+    );
+    /* more sutble version below */
+    /* background-image:linear-gradient(0deg, #4f39fa, #da62c4); */
+    text-align: center;
+    background-size: 100% 200%;
+    background-position-y: 100%;
+    animation: pulse 4s ease-in-out infinite;
+  }
+
+  @keyframes pulse {
+    0%,
+    100% {
+      background-position-y: 0%;
+    }
+    50% {
+      background-position-y: 80%;
+    }
+  }
+</style>

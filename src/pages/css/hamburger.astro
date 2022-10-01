@@ -1,0 +1,70 @@
+---
+import Layout from '../../layouts/Layout.astro'
+import PageLayout from '../../layouts/PageLayout.astro'
+---
+
+<Layout title="Hamburger Animation">
+  <PageLayout />
+  <main>
+    <div class="flex flex-col justify-center items-center w-screen min-h-screen">
+      <div class="px-4 py-3 bg-slate-200">
+        <button id="btn" class="hamburger focus:outline-none">
+          <span class="hamburger-top"></span>
+          <span class="hamburger-middle"></span>
+          <span class="hamburger-bottom"></span>
+        </button>
+      </div>
+    </div>
+  </main>
+</Layout>
+
+<style>
+  .hamburger {
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+    transition: all 0.25s;
+    position: relative;
+  }
+  .hamburger-top,
+  .hamburger-middle,
+  .hamburger-bottom {
+    width: 24px;
+    height: 2px;
+    background-color: #000;
+    position: absolute;
+    transform: rotate(0);
+    top: 0px;
+    left: 0px;
+    transition: all 0.5s;
+  }
+  .hamburger-middle {
+    transform: translateY(7px);
+  }
+  .hamburger-bottom {
+    transform: translateY(14px);
+  }
+  .open {
+    transform: rotate(90deg);
+    transform: translateY(0px);
+  }
+  .open .hamburger-top {
+    transform: rotate(45deg) translateY(6px) translate(6px);
+  }
+
+  .open .hamburger-middle {
+    display: none;
+  }
+
+  .open .hamburger-bottom {
+    transform: rotate(-45deg) translateY(6px) translate(-6px);
+  }
+</style>
+
+<script is:inline>
+  const btn = document.getElementById('btn')
+
+  btn.addEventListener('click', () => {
+    btn.classList.toggle('open')
+  })
+</script>
