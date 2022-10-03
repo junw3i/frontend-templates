@@ -1,0 +1,75 @@
+---
+import Layout from '../../layouts/Layout.astro'
+import PageLayout from '../../layouts/PageLayout.astro'
+import Rick from '../../assets/rick.png'
+import Eye from '../../assets/eye.png'
+---
+
+<Layout title="Eyeballs">
+  <PageLayout />
+  <main>
+    <div class="flex flex-col justify-center items-center w-screen min-h-screen">
+      <div class="relative">
+        <img id="anchor" class="top-0" src={Rick} alt="rick" />
+        <div id="eyes" class="eyes absolute top-0">
+          <img class="eye eye1 absolute" src={Eye} />
+          <img class="eye eye2 absolute" src={Eye} />
+          <img class="eye eye3 absolute" src={Eye} />
+          <img class="eye eye4 absolute" src={Eye} />
+        </div>
+      </div>
+    </div>
+  </main>
+</Layout>
+
+<style>
+  .eye {
+    width: 18px;
+    height: 18px;
+  }
+  .eyes {
+    width: 100%;
+    height: 100%;
+  }
+  .eye1 {
+    top: 245px;
+    left: 130px;
+  }
+  .eye2 {
+    top: 240px;
+    left: 174px;
+  }
+  .eye3 {
+    top: 147px;
+    left: 232px;
+  }
+  .eye4 {
+    top: 147px;
+    left: 272px;
+  }
+</style>
+
+<script is:inline>
+  const anchor = document.getElementById('anchor')
+  const rekt = anchor.getBoundingClientRect()
+  function angle(cx, cy, ex, ey) {
+    const dy = ey - cy
+    const dx = ex - cx
+    const rad = Math.atan2(dy, dx) // Range (-PI, PI)
+    const degree = (rad * 180) / Math.PI
+    return degree
+  }
+  document.addEventListener('mousemove', e => {
+    const mouseX = e.clientX
+    const mouseY = e.clientY
+    const anchorX = rekt.left + rekt.width / 2
+    const anchorY = rekt.top + rekt.height / 2
+    const angleDeg = angle(mouseX, mouseY, anchorX, anchorY)
+    const eyes = document.querySelectorAll('.eye')
+
+    eyes.forEach(eye => {
+      eye.style.transform = `rotate(${90 + angleDeg}deg)`
+    })
+    // anchor.style.filter = `hue-rotate(${angleDeg}deg)`
+  })
+</script>

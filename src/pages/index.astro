@@ -1,85 +1,83 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Card from '../components/Card.astro';
+import Layout from '../layouts/Layout.astro'
+import Card from '../components/Card.astro'
 ---
 
 <Layout title="Frontend Salon">
-	<main>
-		<h1><span class="text-gradient">Frontend</span> Salon</h1>
-		<p class="text-sm text-stone-600">A collection of frontend designs that I fancy</p>
-		<h2 class="font-bold text-stone-800 mt-8">CSS</h2>
-		<ul role="list" class="link-card-grid">
-			<Card
-				href="/frontend-templates/css/text-colors/"
-				title="Text Colors"
-			/>
-			<Card
-				href="/frontend-templates/css/hamburger/"
-				title="Hamburger Animation"
-			/>
-		</ul>
-		<h2 class="font-bold text-stone-800 mt-8">React</h2>
-		<h2 class="font-bold text-stone-800 mt-8">WebGL</h2>
-	</main>
+  <main>
+    <h1><span class="text-gradient">Frontend</span> Salon</h1>
+    <p class="text-sm text-stone-600">A collection of frontend designs that I fancy</p>
+    <h2 class="font-bold text-stone-800 mt-8">CSS</h2>
+    <ul role="list" class="link-card-grid">
+      <Card href="/frontend-templates/css/text-colors/" title="Text Colors" />
+      <Card href="/frontend-templates/css/hamburger/" title="Hamburger Animation" />
+      <Card
+        href="/frontend-templates/css/eyeballs/"
+        title="Rick & Morty (desktop only)"
+      />
+    </ul>
+    <h2 class="font-bold text-stone-800 mt-8">React</h2>
+    <h2 class="font-bold text-stone-800 mt-8">WebGL</h2>
+  </main>
 </Layout>
 
 <style>
-	:root {
-		--astro-gradient: linear-gradient(0deg, #4f39fa, #da62c4);
-	}
+  :root {
+    --astro-gradient: linear-gradient(0deg, #4f39fa, #da62c4);
+  }
 
-	h1 {
-		margin: 2rem 0 0 0;
-		line-height: 1;
-	}
+  h1 {
+    margin: 2rem 0 0 0;
+    line-height: 1;
+  }
 
-	main {
-		margin: auto;
-		padding: 1em;
-		max-width: 60ch;
-	}
+  main {
+    margin: auto;
+    padding: 1em;
+    max-width: 60ch;
+  }
 
-	.text-gradient {
-		font-weight: 900;
-		background-image: var(--astro-gradient);
-		-webkit-background-clip: text;
-		-webkit-text-fill-color: transparent;
-		background-size: 100% 200%;
-		background-position-y: 100%;
-		border-radius: 0.4rem;
-		animation: pulse 4s ease-in-out infinite;
-	}
+  .text-gradient {
+    font-weight: 900;
+    background-image: var(--astro-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 100% 200%;
+    background-position-y: 100%;
+    border-radius: 0.4rem;
+    animation: pulse 4s ease-in-out infinite;
+  }
 
-	@keyframes pulse {
-		0%,
-		100% {
-			background-position-y: 0%;
-		}
-		50% {
-			background-position-y: 80%;
-		}
-	}
+  @keyframes pulse {
+    0%,
+    100% {
+      background-position-y: 0%;
+    }
+    50% {
+      background-position-y: 80%;
+    }
+  }
 
-	.instructions {
-		line-height: 1.6;
-		margin: 1rem 0;
-		background: #4f39fa;
-		padding: 1rem;
-		border-radius: 0.4rem;
-		color: var(--color-bg);
-	}
+  .instructions {
+    line-height: 1.6;
+    margin: 1rem 0;
+    background: #4f39fa;
+    padding: 1rem;
+    border-radius: 0.4rem;
+    color: var(--color-bg);
+  }
 
-	.instructions code {
-		font-size: 0.875em;
-		border: 0.1em solid var(--color-border);
-		border-radius: 4px;
-		padding: 0.15em 0.25em;
-	}
+  .instructions code {
+    font-size: 0.875em;
+    border: 0.1em solid var(--color-border);
+    border-radius: 4px;
+    padding: 0.15em 0.25em;
+  }
 
-	.link-card-grid {
-		display: grid;
-		grid-template-columns: repeat(auto-fit, 1fr);
-		gap: 0.5rem;
-		padding: 0;
-	}
+  .link-card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 1fr);
+    gap: 0.5rem;
+    padding: 0;
+  }
 </style>
