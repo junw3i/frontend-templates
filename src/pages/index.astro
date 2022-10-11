@@ -4,7 +4,7 @@ import Card from '../components/Card.astro'
 ---
 
 <Layout title="Frontend Salon">
-  <main>
+  <main id="canvas">
     <h1><span class="text-gradient">Frontend</span> Salon</h1>
     <p class="text-sm text-stone-600">A collection of frontend designs that I fancy</p>
     <h2 class="font-bold text-stone-800 mt-8">CSS</h2>
@@ -17,7 +17,13 @@ import Card from '../components/Card.astro'
       />
     </ul>
     <h2 class="font-bold text-stone-800 mt-8">React</h2>
+    <ul role="list" class="link-card-grid">
+      <Card href="https://junw3i.github.io/highcharts-playground/" title="Highcharts" />
+    </ul>
     <h2 class="font-bold text-stone-800 mt-8">WebGL</h2>
+    <ul role="list" class="link-card-grid">
+      <Card href="/frontend-templates/webgl/space/" title="Text Colors" />
+    </ul>
   </main>
 </Layout>
 
